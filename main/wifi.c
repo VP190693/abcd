@@ -83,15 +83,15 @@ static void wifi_sta_config(void)
 	{
 		.sta=
 		{
-				.ssid = "ESP32_STA",
-				.password ="password"
+				.ssid = WIFI_APP_STA_SSID,
+				.password =WIFI_APP_STA_PASSWORD
 		}
 	};
 	//not used ip display functions here, as it is optional
 	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
 	ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &sta_config));
-	ESP_ERROR_CHECK(esp_wifi_set_bandwidth(ESP_IF_WIFI_STA, WIFI_BW_HT20));
-	ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+	ESP_ERROR_CHECK(esp_wifi_set_bandwidth(ESP_IF_WIFI_STA, WIFI_APP_STA_BW));
+	ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_APP_STA_POWER_SAVE));
 }
 
 //Main task for wifi
